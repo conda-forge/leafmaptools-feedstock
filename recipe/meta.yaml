@@ -1,5 +1,5 @@
 {% set name = "leafmaptools" %}
-{% set version = "0.0.1" %}
+{% set version = "0.0.2" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: c7ba70a7f56a35d2a0a24031f19c85310f652ae269130119051b9d5c12764645
+  sha256: 567668ea841d065657b7ea50eea34a2d10c2417d2c86d228209615bbb6c1e78b
 
 build:
   number: 0
@@ -19,8 +19,13 @@ requirements:
     - pip
     - python >=3.6
   run:
+    
+    - geojson
+    - h3
+    - ipyfilechooser
     - ipyleaflet
     - ipywidgets
+    - mercantile
     - python >=3.6
 
 test:
@@ -39,3 +44,4 @@ about:
 extra:
   recipe-maintainers:
     - giswqs
+    - deeplook
