@@ -10,14 +10,14 @@ source:
   sha256: 567668ea841d065657b7ea50eea34a2d10c2417d2c86d228209615bbb6c1e78b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     
     - geojson
@@ -26,9 +26,11 @@ requirements:
     - ipyleaflet
     - ipywidgets
     - mercantile
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - leafmaptools
 
